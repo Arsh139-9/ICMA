@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="DFTherapyTVCell" customModule="ICMA" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="DFTherapyTVCell" customModule="ICMA" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -37,10 +37,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-c3-NOc">
-                                        <rect key="frame" x="260" y="146" width="50" height="20"/>
+                                        <rect key="frame" x="260" y="136" width="50" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je8-bY-3Sk" customClass="ICRegularLabel" customModule="ICMA" customModuleProvider="target">
-                                                <rect key="frame" x="11.5" y="-0.5" width="27" height="21"/>
+                                                <rect key="frame" x="10.5" y="1.5" width="29.5" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                 <color key="textColor" name="appWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tWQ-c3-NOc" secondAttribute="bottom" id="1sS-gt-2PJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tWQ-c3-NOc" secondAttribute="bottom" constant="10" id="1sS-gt-2PJ"/>
                                     <constraint firstItem="Ugh-tm-fCo" firstAttribute="top" secondItem="gJ8-p9-XeK" secondAttribute="top" id="DKl-ic-qro"/>
                                     <constraint firstItem="Ugh-tm-fCo" firstAttribute="leading" secondItem="gJ8-p9-XeK" secondAttribute="leading" id="LBo-VU-Hyx"/>
                                     <constraint firstAttribute="trailing" secondItem="Ugh-tm-fCo" secondAttribute="trailing" id="jrq-9N-GS5"/>
@@ -66,11 +66,11 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something to Laugh About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbH-Rh-Xsr" customClass="ICMediumLabel" customModule="ICMA" customModuleProvider="target">
-                                <rect key="frame" x="12" y="171" width="175" height="25"/>
+                                <rect key="frame" x="12" y="171" width="204.5" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="VAo-wH-jdy"/>
+                                    <constraint firstAttribute="height" constant="25" id="L9z-kK-XEI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.1762659848" green="0.17258375879999999" blue="0.17248499389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -105,7 +105,7 @@
     </objects>
     <resources>
         <namedColor name="appBlack">
-            <color red="0.0" green="0.0" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0080000003799796104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appWhite">
             <color red="0.97600001096725464" green="0.97699999809265137" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

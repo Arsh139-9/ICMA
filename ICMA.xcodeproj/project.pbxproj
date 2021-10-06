@@ -12,7 +12,11 @@
 		187DCD59270DA73F00579F16 /* LoadingIndicatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DCD58270DA73F00579F16 /* LoadingIndicatorVC.swift */; };
 		187DCD5B270DA91700579F16 /* LoginSignUpEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DCD5A270DA91600579F16 /* LoginSignUpEntity.swift */; };
 		187DCD5D270DA91B00579F16 /* ForgotPasswordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DCD5C270DA91B00579F16 /* ForgotPasswordEntity.swift */; };
+		187DCD71270DD71800579F16 /* AFWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DCD70270DD71800579F16 /* AFWrapperClass.swift */; };
+		187DCD73270DD80F00579F16 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DCD72270DD80F00579F16 /* HelperMethods.swift */; };
 		57A5B19B6565045C2C97DFBF /* Pods_ICMA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50101E0E7FAE4E9A48CBC5C5 /* Pods_ICMA.framework */; };
+		7C236953270DD39A001F4F13 /* BreathingTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C236951270DD39A001F4F13 /* BreathingTVCell.swift */; };
+		7C236954270DD39A001F4F13 /* BreathingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C236952270DD39A001F4F13 /* BreathingTVCell.xib */; };
 		7C7ED8B0270C3593000FDC18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8AF270C3593000FDC18 /* AppDelegate.swift */; };
 		7C7ED8B2270C3593000FDC18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8B1270C3593000FDC18 /* SceneDelegate.swift */; };
 		7C7ED8B7270C3593000FDC18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7ED8B5270C3593000FDC18 /* Main.storyboard */; };
@@ -29,7 +33,6 @@
 		7C7ED8EF270C3A85000FDC18 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8EE270C3A85000FDC18 /* RestManager.swift */; };
 		7C7ED8F2270C3A9F000FDC18 /* DisplayAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8F1270C3A9F000FDC18 /* DisplayAlertManager.swift */; };
 		7C7ED8F5270C3ABE000FDC18 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8F4270C3ABE000FDC18 /* LoadingManager.swift */; };
-		7C7ED8F8270C3AC2000FDC18 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8F7270C3AC2000FDC18 /* HelperMethods.swift */; };
 		7C7ED8FB270C3AC6000FDC18 /* DateTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8FA270C3AC6000FDC18 /* DateTimeManager.swift */; };
 		7C7ED8FE270C3ACA000FDC18 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED8FD270C3ACA000FDC18 /* NavigationManager.swift */; };
 		7C7ED901270C3AD3000FDC18 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED900270C3AD3000FDC18 /* PreferenceManager.swift */; };
@@ -53,6 +56,8 @@
 		7C7ED95B270C814A000FDC18 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED95A270C814A000FDC18 /* ForgotPasswordVC.swift */; };
 		7C7ED9AD270D90DC000FDC18 /* DFTherapyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED9AB270D90DB000FDC18 /* DFTherapyTVCell.swift */; };
 		7C7ED9AE270D90DC000FDC18 /* DFTherapyTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7ED9AC270D90DB000FDC18 /* DFTherapyTVCell.xib */; };
+		7C7ED9D1270DBD92000FDC18 /* DFHSTherapyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED9D0270DBD91000FDC18 /* DFHSTherapyVC.swift */; };
+		7C7ED9D4270DC4FE000FDC18 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ED9D3270DC4FE000FDC18 /* TabBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,9 +66,13 @@
 		187DCD58270DA73F00579F16 /* LoadingIndicatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorVC.swift; sourceTree = "<group>"; };
 		187DCD5A270DA91600579F16 /* LoginSignUpEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignUpEntity.swift; sourceTree = "<group>"; };
 		187DCD5C270DA91B00579F16 /* ForgotPasswordEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEntity.swift; sourceTree = "<group>"; };
+		187DCD70270DD71800579F16 /* AFWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFWrapperClass.swift; sourceTree = "<group>"; };
+		187DCD72270DD80F00579F16 /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		3211F143FD8C64391037C19B /* Pods-ICMA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICMA.release.xcconfig"; path = "Target Support Files/Pods-ICMA/Pods-ICMA.release.xcconfig"; sourceTree = "<group>"; };
 		50101E0E7FAE4E9A48CBC5C5 /* Pods_ICMA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ICMA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		688DD54748BBE4614C7A0DFD /* Pods-ICMA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICMA.debug.xcconfig"; path = "Target Support Files/Pods-ICMA/Pods-ICMA.debug.xcconfig"; sourceTree = "<group>"; };
+		7C236951270DD39A001F4F13 /* BreathingTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTVCell.swift; sourceTree = "<group>"; };
+		7C236952270DD39A001F4F13 /* BreathingTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreathingTVCell.xib; sourceTree = "<group>"; };
 		7C7ED8AC270C3593000FDC18 /* ICMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICMA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7ED8AF270C3593000FDC18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C7ED8B1270C3593000FDC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +91,6 @@
 		7C7ED8EE270C3A85000FDC18 /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		7C7ED8F1270C3A9F000FDC18 /* DisplayAlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlertManager.swift; sourceTree = "<group>"; };
 		7C7ED8F4270C3ABE000FDC18 /* LoadingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
-		7C7ED8F7270C3AC2000FDC18 /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		7C7ED8FA270C3AC6000FDC18 /* DateTimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeManager.swift; sourceTree = "<group>"; };
 		7C7ED8FD270C3ACA000FDC18 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		7C7ED900270C3AD3000FDC18 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
@@ -106,6 +114,8 @@
 		7C7ED95A270C814A000FDC18 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		7C7ED9AB270D90DB000FDC18 /* DFTherapyTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFTherapyTVCell.swift; sourceTree = "<group>"; };
 		7C7ED9AC270D90DB000FDC18 /* DFTherapyTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DFTherapyTVCell.xib; sourceTree = "<group>"; };
+		7C7ED9D0270DBD91000FDC18 /* DFHSTherapyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFHSTherapyVC.swift; sourceTree = "<group>"; };
+		7C7ED9D3270DC4FE000FDC18 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +183,6 @@
 			children = (
 				7C7ED8C9270C37D6000FDC18 /* Classes */,
 				7C7ED8CA270C37E0000FDC18 /* Constant */,
-				7C7ED8CB270C37E8000FDC18 /* Formatting */,
 				7C7ED8CC270C37F0000FDC18 /* Managers */,
 				7C7ED8CD270C37F7000FDC18 /* Utilities */,
 			);
@@ -239,16 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				7C7ED8EB270C3A7B000FDC18 /* AppConstant.swift */,
+				187DCD70270DD71800579F16 /* AFWrapperClass.swift */,
 				7C7ED8EE270C3A85000FDC18 /* RestManager.swift */,
 			);
 			path = Constant;
-			sourceTree = "<group>";
-		};
-		7C7ED8CB270C37E8000FDC18 /* Formatting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Formatting;
 			sourceTree = "<group>";
 		};
 		7C7ED8CC270C37F0000FDC18 /* Managers */ = {
@@ -261,7 +264,7 @@
 				7C7ED8FD270C3ACA000FDC18 /* NavigationManager.swift */,
 				7C7ED900270C3AD3000FDC18 /* PreferenceManager.swift */,
 				7C7ED903270C3AD9000FDC18 /* ValidationManager.swift */,
-				7C7ED8F7270C3AC2000FDC18 /* HelperMethods.swift */,
+				187DCD72270DD80F00579F16 /* HelperMethods.swift */,
 				7C7ED8F1270C3A9F000FDC18 /* DisplayAlertManager.swift */,
 			);
 			path = Managers;
@@ -295,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				7C7ED9AC270D90DB000FDC18 /* DFTherapyTVCell.xib */,
+				7C236951270DD39A001F4F13 /* BreathingTVCell.swift */,
+				7C236952270DD39A001F4F13 /* BreathingTVCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -313,6 +318,8 @@
 				7C7ED954270C80A2000FDC18 /* LogInVC.swift */,
 				7C7ED957270C80E2000FDC18 /* SignUpVC.swift */,
 				7C7ED95A270C814A000FDC18 /* ForgotPasswordVC.swift */,
+				7C7ED9D0270DBD91000FDC18 /* DFHSTherapyVC.swift */,
+				7C7ED9D3270DC4FE000FDC18 /* TabBarVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -419,6 +426,7 @@
 				7C7ED922270C3BA8000FDC18 /* Localizable.strings in Resources */,
 				7C7ED93B270C5B88000FDC18 /* Poppins-Medium.ttf in Resources */,
 				7C7ED8B9270C3596000FDC18 /* Assets.xcassets in Resources */,
+				7C236954270DD39A001F4F13 /* BreathingTVCell.xib in Resources */,
 				7C7ED8B7270C3593000FDC18 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,13 +480,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7ED9D1270DBD92000FDC18 /* DFHSTherapyVC.swift in Sources */,
 				7C7ED913270C3B0E000FDC18 /* ICImageView.swift in Sources */,
+				187DCD73270DD80F00579F16 /* HelperMethods.swift in Sources */,
 				7C7ED919270C3B19000FDC18 /* ICTextField.swift in Sources */,
 				187DCD55270DA5C800579F16 /* AppAlert.swift in Sources */,
 				7C7ED904270C3AD9000FDC18 /* ValidationManager.swift in Sources */,
+				187DCD71270DD71800579F16 /* AFWrapperClass.swift in Sources */,
 				7C7ED90A270C3B03000FDC18 /* ICButton.swift in Sources */,
 				7C7ED8EC270C3A7B000FDC18 /* AppConstant.swift in Sources */,
-				7C7ED8F8270C3AC2000FDC18 /* HelperMethods.swift in Sources */,
 				187DCD59270DA73F00579F16 /* LoadingIndicatorVC.swift in Sources */,
 				7C7ED8F5270C3ABE000FDC18 /* LoadingManager.swift in Sources */,
 				7C7ED901270C3AD3000FDC18 /* PreferenceManager.swift in Sources */,
@@ -487,6 +497,7 @@
 				187DCD5B270DA91700579F16 /* LoginSignUpEntity.swift in Sources */,
 				7C7ED955270C80A2000FDC18 /* LogInVC.swift in Sources */,
 				7C7ED8E9270C3A62000FDC18 /* LocalizableConstants.swift in Sources */,
+				7C236953270DD39A001F4F13 /* BreathingTVCell.swift in Sources */,
 				7C7ED8B0270C3593000FDC18 /* AppDelegate.swift in Sources */,
 				7C7ED8E3270C3A56000FDC18 /* AppNavigations.swift in Sources */,
 				7C7ED95B270C814A000FDC18 /* ForgotPasswordVC.swift in Sources */,
@@ -499,6 +510,7 @@
 				187DCD57270DA6FC00579F16 /* Validation Managers.swift in Sources */,
 				7C7ED9AD270D90DC000FDC18 /* DFTherapyTVCell.swift in Sources */,
 				7C7ED8B2270C3593000FDC18 /* SceneDelegate.swift in Sources */,
+				7C7ED9D4270DC4FE000FDC18 /* TabBarVC.swift in Sources */,
 				7C7ED958270C80E2000FDC18 /* SignUpVC.swift in Sources */,
 				7C7ED91F270C3B75000FDC18 /* ProfileViewForTitle.swift in Sources */,
 				7C7ED8EF270C3A85000FDC18 /* RestManager.swift in Sources */,

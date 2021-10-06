@@ -86,119 +86,42 @@ class LogInVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
         
         return true
     }
-
-    open func loginApi(){
-        guard let url = URL(string: kBASEURL + WSMethods.signIn) else { return }
+    open func signInApi(){
+        DispatchQueue.main.async {
+            AFWrapperClass.svprogressHudShow(title:"Loading...", view:self)
+        }
+        AFWrapperClass.requestPOSTURL(kBASEURL + WSMethods.signIn, params: generatingParameters(), headers: nil) { response in
+            AFWrapperClass.svprogressHudDismiss(view: self)
+            print(response)
+            let message = response["message"] as? String ?? ""
+            if let status = response["status"] as? Int {
+                if status == 200{
+                    showAlertMessage(title: kAppName.localized(), message: message , okButton: "OK", controller: self) {
+                        let controller = NavigationManager.shared.tabBarVC
+                        self.push(controller: controller)
+                    }
+                }else{
+                    alert(AppAlertTitle.appName.rawValue, message: message, view: self)
+                }
+            }
+            
+        } failure: { error in
+            AFWrapperClass.svprogressHudDismiss(view: self)
+            alert(AppAlertTitle.appName.rawValue, message: error.localizedDescription, view: self)
+        }
+    }
+    func generatingParameters() -> [String:AnyObject] {
+        var parameters:[String:AnyObject] = [:]
+        parameters["email"] = txtEmail.text  as AnyObject
+        parameters["password"] = txtPassword.text  as AnyObject
+        parameters["devicetype"] = "1"  as AnyObject
         var deviceToken  = getSAppDefault(key: "DeviceToken") as? String ?? ""
         if deviceToken == ""{
             deviceToken = "123"
         }
-        
-        rest.requestHttpHeaders.add(value: "application/json", forKey: "Content-Type")
-        rest.httpBodyParameters.add(value: txtEmail.text ?? "", forKey: "email")
-        rest.httpBodyParameters.add(value: txtPassword.text ?? "", forKey: "password")
-        rest.httpBodyParameters.add(value: deviceToken, forKey: "devicetoken")
-        rest.httpBodyParameters.add(value: "1", forKey: "devicetype")
-        DispatchQueue.main.async {
-            
-            AFWrapperClass.svprogressHudShow(title:"Loading...", view:self)
-        }
-        rest.makeRequest(toURL: url, withHttpMethod: .post) { (results) in
-            DispatchQueue.main.async {
-                
-                AFWrapperClass.svprogressHudDismiss(view: self)
-            }
-            
-            guard let response = results.response else { return }
-            if response.httpStatusCode == 200 {
-                guard let data = results.data else { return }
-                
-                let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyHashable] ?? [:]
-                //                    let dataString = String(data: data, encoding: .utf8)
-                //                    let jsondata = dataString?.data(using: .utf8)
-                //                    let decoder = JSONDecoder()
-                //                    let jobUser = try? decoder.decode(LoginData, from: jsondata!)
-                //
-                print(jsonResult!)
-                
-                let loginResp =   LoginSignUpData.init(dict: jsonResult ?? [:])
-                if loginResp?.status == 1{
-                    setAppDefaults(loginResp?.user_id, key: "UserId")
-                    setAppDefaults(loginResp?.authtoken, key: "AuthToken")
-                    setAppDefaults(loginResp?.firstname ?? "" + loginResp!.lastname, key: "UserName")
-                    
-                    DispatchQueue.main.async {
-                        Alert.present(
-                            title: AppAlertTitle.appName.rawValue,
-                            message: loginResp?.alertMessage ?? "",
-                            actions: .ok(handler: {
-                            }),
-                            from: self
-                        )
-                    }
-                    //                    DispatchQueue.main.async {
-                    
-                    
-                    
-                    
-                    //                        let storyBoard = UIStoryboard(name: "Setting", bundle: nil)
-                    //                        let vc = storyBoard.instantiateViewController(withIdentifier:"TabBarVC") as? TabBarVC
-                    //                        if let vc = vc {
-                    //                            self.navigationController?.pushViewController(vc, animated: true)
-                    //                        }
-                    
-                    //}
-                }
-                
-                else if loginResp?.status == 2{
-                    DispatchQueue.main.async {
-                        
-                        //                    Alert.present(title: <#T##String?#>, message: <#T##String#>, actions: .retry(handler: {
-                        //
-                        //                    }),.ok(handler: {
-                        //
-                        //                    }), from: self)
-                        
-                        
-                        let alert = UIAlertController(title: AppAlertTitle.appName.rawValue, message: loginResp?.alertMessage, preferredStyle: UIAlertController.Style.alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Skip", style: UIAlertAction.Style.default, handler: { _ in
-                            //Cancel Action
-                        }))
-                        alert.addAction(UIAlertAction(title: "Resend",
-                                                      style: UIAlertAction.Style.destructive,
-                                                      handler: {(_: UIAlertAction!) in
-                                                        //Sign out action
-                                                        self.resendEmailVerificationApi()
-                                                      }))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
-                else{
-                    DispatchQueue.main.async {
-                        Alert.present(
-                            title: AppAlertTitle.appName.rawValue,
-                            message: loginResp?.alertMessage ?? "",
-                            actions: .ok(handler: {
-                            }),
-                            from: self
-                        )
-                    }
-                }
-                
-            }else{
-                DispatchQueue.main.async {
-                    
-                    Alert.present(
-                        title: AppAlertTitle.appName.rawValue,
-                        message: AppAlertTitle.connectionError.rawValue,
-                        actions: .ok(handler: {
-                        }),
-                        from: self
-                    )
-                }
-            }
-        }
+        parameters["devicetoken"] = deviceToken  as AnyObject
+        print(parameters)
+        return parameters
     }
     open func resendEmailVerificationApi(){
         
@@ -274,29 +197,28 @@ class LogInVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
         let controller = NavigationManager.shared.signUpVC
         push(controller: controller)
     }
+    
     @IBAction func btnLogin(_ sender: Any) {
-        let isRemember  = getSAppDefault(key: "rememberMe") as? String ?? ""
+//        let isRemember  = getSAppDefault(key: "rememberMe") as? String ?? ""
+//
+//        if validate() == false {
+//            return
+//        }
 
-        if validate() == false {
-            return
-        }
-
-        else if isRemember == "0"{
-            Alert.present(
-                title: AppAlertTitle.appName.rawValue,
-                message: AppRememberMeAlertMessage.rememberMe,
-                actions: .ok(handler: {
-                }),
-                from: self
-            )
-        }
-        else{
-            
-            loginApi()
-        }
-        
-        
-        
+//        else if isRemember == "0"{
+//            Alert.present(
+//                title: AppAlertTitle.appName.rawValue,
+//                message: AppRememberMeAlertMessage.rememberMe,
+//                actions: .ok(handler: {
+//                }),
+//                from: self
+//            )
+//        }
+//        else{
+         
+//            loginApi()
+//        }
+        signInApi()
         
     }
     @IBAction func rememberBtnAction(_ sender: UIButton) {
@@ -342,6 +264,7 @@ class LogInVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
         default:break
         }
     }
+    
     //------------------------------------------------------
     
     //MARK: UIViewController

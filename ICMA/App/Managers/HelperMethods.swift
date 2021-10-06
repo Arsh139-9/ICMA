@@ -8,33 +8,24 @@
 
 import Foundation
 import UIKit
-import Localize_Swift
 
 
-//let alertTitleOk = "alert_button_ok"
-//let alertTitleCancel = "alert_button_cancel"
-//let alertTitleSave = "alert_button_save"
-//let alertTitleNo = "alert_button_no"
-//let alertTitleYes = "alert_button_yes"
-//let alertTitleCamera = "sheet_button_camera"
-//let alertTitlePhoto = "sheet_button_photo_library"
-//
-//var keyAssociatedAlertPlaceHolder : Int = 0
-//var keyAssociatedAactionSave : Int = 0
-
+var questionnaire = [[String:Any]]()
+var questionnaireDict = [String:Any]()
+var checkInQuestionnaire = [[String:Any]]()
+var checkInQuestionnaireDict = [String:Any]()
+var mealNumber = 0
 func validateEmail(_ email:String)->Bool
 {
     let emailRegex="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,7}"
     let emailTest=NSPredicate(format:"SELF MATCHES %@", emailRegex)
     return emailTest.evaluate(with:email)
 }
-func alertDisply(target : AnyObject? = nil, animated : Bool = true, message : String, handlerOK:(()->Void)? = nil)
+ func alert(_ title : String, message : String, view:UIViewController)
 {
-    if let controller : UIViewController = UIApplication.topViewController() {
-        let alert = UIAlertController(title:kAppName.localized(), message:  message.localized(), preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        controller.present(alert, animated: true, completion: nil)
-    }
+    let alert = UIAlertController(title:title, message:  message, preferredStyle: UIAlertController.Style.alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+    view.present(alert, animated: true, completion: nil)
 }
 func showMessage(title: String, message: String, okButton: String, cancelButton: String, controller: UIViewController, okHandler: (() -> Void)?, cancelHandler: @escaping (() -> Void)) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -51,9 +42,9 @@ func showMessage(title: String, message: String, okButton: String, cancelButton:
     
     alertController.addAction(dismissAction)
     alertController.addAction(cancelAction)
-    
-    //  UIApplication.shared.windows[0].rootViewController?.present(alertController, animated: true, completion: nil)
-    controller.present(alertController, animated: true, completion: nil)
+
+  //  UIApplication.shared.windows[0].rootViewController?.present(alertController, animated: true, completion: nil)
+            controller.present(alertController, animated: true, completion: nil)
 }
 func showAlertMessage(title: String, message: String, okButton: String, controller: UIViewController, okHandler: (() -> Void)?){
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -63,51 +54,42 @@ func showAlertMessage(title: String, message: String, okButton: String, controll
         }
     }
     alertController.addAction(dismissAction)
-    // UIApplication.shared.windows[0].rootViewController?.present(alertController, animated: true, completion: nil)
+   // UIApplication.shared.windows[0].rootViewController?.present(alertController, animated: true, completion: nil)
     controller.present(alertController, animated: true, completion: nil)
-    
-}
 
-func showErrorMessageWithYesNo(message: String, yesTitle: String, noTitle: String, image: String, okHandler: (() -> Void)?, cancelHandler: (() -> Void)?){
-    //whenever update the pod all preoperties will be default. for change the icon size and background circle size change go to pods->SCLAlertView->SCLAlerView.swift-> change the kCircleIconHeight and kCircleHeight
-    //    let appearance = SCLAlertView.SCLAppearance(
-    //        showCloseButton: false, buttonsLayout: SCLAlertButtonLayout.horizontal
-    //    )
-    //    let alertView = SCLAlertView(appearance: appearance)
-    
-    //    let alertViewIcon = UIImage(named: image)
-    //
-    //    alertView.addButton(noTitle, backgroundColor: #colorLiteral(red: 0.6398667693, green: 0.7262453437, blue: 0.9006753564, alpha: 1), textColor: UIColor.white) {
-    //        // print("no")
-    //        if cancelHandler != nil {
-    //            cancelHandler!()
-    //        }
-    //    }
-    //    alertView.addButton(yesTitle, backgroundColor: #colorLiteral(red: 0.3960784314, green: 0.5411764706, blue: 0.8352941176, alpha: 1), textColor: UIColor.white, action: {
-    //        if okHandler != nil {
-    //            okHandler!()
-    //        }
-    //    })
-    //
-    //    alertView.showError("", subTitle: message, closeButtonTitle: "Ok", colorStyle: 0x658AD5, circleIconImage: alertViewIcon)
-    //
-    //}
-    //extension String{
-    //    var trimWhiteSpace: String{
-    //        return self.trimmingCharacters(in: .whitespacesAndNewlines)
-    //    }
-    //    var htmlStripped : String{
-    //        let tagFree = self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-    //        return tagFree.replacingOccurrences(of: "&[^;]+;", with: "", options: String.CompareOptions.regularExpression, range: nil)
-    //    }
-    //}
-    
-    //extension UIColor {
-    //    static var random: UIColor {
-    //        return UIColor(red: .random(in: 0...1),
-    //                       green: .random(in: 0...1),
-    //                       blue: .random(in: 0...1),
-    //                       alpha: 1.0)
-    //    }
-    //}
 }
+func storeCredential(email : String, password : String){
+     
+     UserDefaults.standard.set(email, forKey: "userEmail")
+     UserDefaults.standard.set(password, forKey: "userPassword")
+     UserDefaults.standard.synchronize()
+
+ }
+func removeCredential(){
+     
+     if UserDefaults.standard.value(forKey:"userEmail") != nil {
+         UserDefaults.standard.removeObject(forKey: "userEmail")
+     }
+     
+     if UserDefaults.standard.value(forKey:"userPassword") != nil {
+         UserDefaults.standard.removeObject(forKey: "userPassword")
+     }
+     UserDefaults.standard.synchronize()
+ }
+
+func addShadowToView(targetView: UIView,shadowOffset: CGSize,shadowOpacity : Float, shadowRadius: CGFloat,shadowColor: CGColor) {
+    targetView.layer.masksToBounds = false
+    targetView.layer.shadowOffset = shadowOffset
+    targetView.layer.shadowOpacity = shadowOpacity
+    targetView.layer.shadowRadius = shadowRadius
+    targetView.layer.shadowColor = shadowColor
+}
+//extension String{
+//    var trimWhiteSpace: String{
+//        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+//    }
+//    var htmlStripped : String{
+//        let tagFree = self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+//        return tagFree.replacingOccurrences(of: "&[^;]+;", with: "", options: String.CompareOptions.regularExpression, range: nil)
+//    }
+//}

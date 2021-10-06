@@ -68,6 +68,10 @@ class NavigationManager: NSObject {
     public var signUpVC: SignUpVC {
         return mainStoryboard.instantiateViewController(withIdentifier: String(describing: SignUpVC.self)) as! SignUpVC
     }
+    public var tabBarVC: TabBarVC {
+        return mainStoryboard.instantiateViewController(withIdentifier: String(describing: TabBarVC.self)) as! TabBarVC
+    }
     
     //------------------------------------------------------
 }
+

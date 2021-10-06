@@ -63,67 +63,34 @@ class ForgotPasswordVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
         self.pop()
     }
     open func forgotPasswordApi(){
-        
-        
-        guard let url = URL(string: kBASEURL + WSMethods.forgotPassword) else { return }
-        
-        restF.requestHttpHeaders.add(value: "application/json", forKey: "Content-Type")
-        restF.httpBodyParameters.add(value:txtEmail.text ?? "", forKey:"email")
         DispatchQueue.main.async {
-            
             AFWrapperClass.svprogressHudShow(title:"Loading...", view:self)
         }
-        
-        restF.makeRequest(toURL: url, withHttpMethod: .post) { (results) in
-            DispatchQueue.main.async {
-                
-                AFWrapperClass.svprogressHudDismiss(view: self)
-            }
-            guard let response = results.response else { return }
-            if response.httpStatusCode == 200 {
-                guard let data = results.data else { return }
-                
-                let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyHashable] ?? [:]
-                
-                let forgotResp = ForgotPasswordData.init(dict: jsonResult ?? [:])
-                
-                if forgotResp?.status == 1{
-                    DispatchQueue.main.async {
-                        Alert.present(
-                            title: AppAlertTitle.appName.rawValue,
-                            message: forgotResp?.message ?? "",
-                            actions: .ok(handler: {
-                                self.navigationController?.popViewController(animated: true)
-                            }),
-                            from: self
-                        )
-                    }                }else{
-                        DispatchQueue.main.async {
-                            
-                            Alert.present(
-                                title: AppAlertTitle.appName.rawValue,
-                                message: forgotResp?.message ?? "",
-                                actions: .ok(handler: {
-                                }),
-                                from: self
-                            )
-                        }
+        AFWrapperClass.requestPOSTURL(kBASEURL + WSMethods.forgotPassword, params: generatingParameters(), headers: nil) { response in
+            AFWrapperClass.svprogressHudDismiss(view: self)
+            print(response)
+            let message = response["message"] as? String ?? ""
+            if let status = response["status"] as? Int {
+                if status == 200{
+                    showAlertMessage(title: kAppName.localized(), message: message , okButton: "OK", controller: self) {
+                        self.navigationController?.popViewController(animated: true)
                     }
-                
-                
-            }else{
-                DispatchQueue.main.async {
-                    
-                    Alert.present(
-                        title: AppAlertTitle.appName.rawValue,
-                        message: AppAlertTitle.connectionError.rawValue,
-                        actions: .ok(handler: {
-                        }),
-                        from: self
-                    )
+                }else{
+                    alert(AppAlertTitle.appName.rawValue, message: message, view: self)
                 }
             }
+            
+        } failure: { error in
+            AFWrapperClass.svprogressHudDismiss(view: self)
+            alert(AppAlertTitle.appName.rawValue, message: error.localizedDescription, view: self)
         }
+    }
+    func generatingParameters() -> [String:AnyObject] {
+        var parameters:[String:AnyObject] = [:]
+        parameters["email"] = txtEmail.text  as AnyObject
+        
+        print(parameters)
+        return parameters
     }
     @IBAction func btnSubmit(_ sender: Any) {
         if validate() == false {

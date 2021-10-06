@@ -21,7 +21,7 @@ class SignUpVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var txtEmail: ICEmailTextField!
     @IBOutlet weak var txtPassword: ICPasswordTextField!
     let rest = RestManager()
-
+    
     var returnKeyHandler: IQKeyboardReturnKeyHandler?
     var unchecked = Bool()
     var iconClick = true
@@ -38,80 +38,44 @@ class SignUpVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
     deinit { //same like dealloc in ObjectiveC
         
     }
-   
     open func signUpApi(){
-        guard let url = URL(string: kBASEURL + WSMethods.signUp) else { return }
+        DispatchQueue.main.async {
+            AFWrapperClass.svprogressHudShow(title:"Loading...", view:self)
+        }
+        AFWrapperClass.requestPOSTURL(kBASEURL + WSMethods.signUp, params: generatingParameters(), headers: nil) { response in
+            AFWrapperClass.svprogressHudDismiss(view: self)
+            print(response)
+            let message = response["message"] as? String ?? ""
+            if let status = response["status"] as? Int {
+                if status == 200{
+                    showAlertMessage(title: kAppName.localized(), message: message , okButton: "OK", controller: self) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }else{
+                    alert(AppAlertTitle.appName.rawValue, message: message, view: self)
+                }
+            }
+            
+        } failure: { error in
+            AFWrapperClass.svprogressHudDismiss(view: self)
+            alert(AppAlertTitle.appName.rawValue, message: error.localizedDescription, view: self)
+        }
+    }
+    func generatingParameters() -> [String:AnyObject] {
+        var parameters:[String:AnyObject] = [:]
+        parameters["email"] = txtEmail.text  as AnyObject
+        parameters["password"] = txtPassword.text  as AnyObject
+        parameters["firstname"] = txtFirstName.text  as AnyObject
+        parameters["lastname"] = txtLastName.text  as AnyObject
+
+        parameters["devicetype"] = "1"  as AnyObject
         var deviceToken  = getSAppDefault(key: "DeviceToken") as? String ?? ""
         if deviceToken == ""{
             deviceToken = "123"
         }
-        rest.requestHttpHeaders.add(value: "application/json", forKey: "Content-Type")
-        rest.httpBodyParameters.add(value: txtEmail.text ?? "", forKey: "email")
-        rest.httpBodyParameters.add(value: txtPassword.text ?? "", forKey: "password")
-        rest.httpBodyParameters.add(value: txtFirstName.text ?? "", forKey: "firstname")
-        rest.httpBodyParameters.add(value: txtLastName.text ?? "", forKey: "lastname")
-        rest.httpBodyParameters.add(value: deviceToken, forKey: "devicetoken")
-        rest.httpBodyParameters.add(value: "1", forKey: "devicetype")
-        DispatchQueue.main.async {
-            
-            AFWrapperClass.svprogressHudShow(title:"Loading...", view:self)
-        }
-        rest.makeRequest(toURL: url, withHttpMethod: .post) { (results) in
-            DispatchQueue.main.async {
-                
-                AFWrapperClass.svprogressHudDismiss(view: self)
-            }
-            
-            guard let response = results.response else { return }
-            if response.httpStatusCode == 200 {
-                guard let data = results.data else { return }
-                
-                let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyHashable] ?? [:]
-                //                    let dataString = String(data: data, encoding: .utf8)
-                //                    let jsondata = dataString?.data(using: .utf8)
-                //                    let decoder = JSONDecoder()
-                //                    let jobUser = try? decoder.decode(LoginData, from: jsondata!)
-                //
-                let loginResp =   LoginSignUpData.init(dict: jsonResult ?? [:])
-                if loginResp?.status == 1{
-                    setAppDefaults(loginResp?.user_id, key: "UserId")
-                    setAppDefaults(loginResp?.authtoken, key: "AuthToken")
-                    setAppDefaults(loginResp?.firstname ?? "" + loginResp!.lastname, key: "UserName")
-                    DispatchQueue.main.async {
-                        Alert.present(
-                            title: AppAlertTitle.appName.rawValue,
-                            message: loginResp?.alertMessage ?? "",
-                            actions: .ok(handler: {
-                                self.popBack(0)
-                            }),
-                            from: self
-                        )
-                    }
-                }else{
-                    DispatchQueue.main.async {
-                        Alert.present(
-                            title: AppAlertTitle.appName.rawValue,
-                            message: loginResp?.alertMessage ?? "",
-                            actions: .ok(handler: {
-                            }),
-                            from: self
-                        )
-                    }
-                }
-                
-            }else{
-                DispatchQueue.main.async {
-                    
-                    Alert.present(
-                        title: AppAlertTitle.appName.rawValue,
-                        message: AppAlertTitle.connectionError.rawValue,
-                        actions: .ok(handler: {
-                        }),
-                        from: self
-                    )
-                }
-            }
-        }
+        parameters["devicetoken"] = deviceToken  as AnyObject
+        print(parameters)
+        return parameters
     }
     //------------------------------------------------------
     
@@ -199,7 +163,7 @@ class SignUpVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
     
     @IBAction func btnSignUp(_ sender: Any) {
         let isRemember  = getSAppDefault(key: "rememberMe") as? String ?? ""
-
+        
         if validate() == false {
             return
         }
@@ -234,7 +198,7 @@ class SignUpVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
             emailView.borderColor = ICColor.appButton
         case txtPassword:
             passwordView.borderColor = ICColor.appButton
-       
+            
         default:break
             
         }
@@ -253,7 +217,6 @@ class SignUpVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
-    
     //------------------------------------------------------
     
     //MARK: UIViewController
@@ -261,7 +224,7 @@ class SignUpVC : BaseVC, UITextFieldDelegate, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setAppDefaults("0", key: "rememberMe")
-
+        
         setup()
     }
     
