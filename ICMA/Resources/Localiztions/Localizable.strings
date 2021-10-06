@@ -1,0 +1,303 @@
+/* 
+  Localizable.strings
+  TracksFinder
+
+  Created by Dharmesh Avaiya on 2/9/21.
+  Copyright © 2021 dharmesh. All rights reserved.
+*/
+
+//Backend Errors
+"error_0" = "Something went wrong, Please try after sometime.";
+"error_101" = "Email address is empty.";
+"error_102" = "Password is empty.";
+"error_103" = "Device token can not be blank.";
+"error_104" = "User access token is empty.";
+"error_105" = "Your session has been expired due to the security concerns, Please signing again to continue to the application.";
+"error_106" = "Your account is currently disabled.";
+"error_107" = "This email address is already registered with us.";
+"error_108" = "Please verify your account first by clicking the activation link that has been send to your email.";
+"error_109" = "This email is not registered with us.";
+//"error_110" = "Current password is not same as new password.";
+"error_110" = "Current password is not correct.";
+"error_111" = "Current password is not correct.";
+"error_112" = "The email address does not match the email associated with your RSS feed. Please try again.";
+"error_113" = "Facebook token can not be blank.";
+"error_115" = "Apple token can not be blank.";
+"error_116" = "Google token can not be blank.";
+"error_117" = "We are unable to process your request currently, Please try after sometimes.";
+"error_118" = "You have entered incorrect password.";
+"error_401" = "Email and password not correct";
+"error_404" = "No data found";
+"error_503" = "User not found.";
+"error_504" = "Failed to update";
+"error_505" = "Failed to signup";
+"error_506" = "We are unable to send code again to you at the moment, Please try again later.";
+"error_511" = "Your account has been disable, please contact with admin for more detail.";
+"in_progress" = "In progress";
+"age_should_be_greater_then_13" = "Age should be greater then 13.";
+"no_network_connection" = "No internet access";
+"no_card_added" = "No card added, add card to book appointment";
+"select_genres_you_specialized_in" = "Select genres you specialized in";
+"end_time_must_be_greater_then_start_time" = "Please enter valid slot time.";
+"your_account_has_been_disable_please_contact_with_admin_for_more_detail" = "Your account has been disable, please contact with admin for more detail.";
+"no_date_blocked_for_this_month" = "No date blocked for this month";
+"no_card" = "No card added";
+"pending_verification" = "Your studio account verification under process, please wait until complete verification";
+"maximumLimit" = "You can add maximum of 10 images for studio.";
+
+//dilogue buttons
+"alert_button_ok" = "Ok";
+"alert_button_cancel" = "Cancel";
+"alert_button_save" = "Save";
+"alert_button_no" = "No";
+"alert_button_yes" = "Yes";
+"sheet_button_camera" = "Camera";
+"sheet_button_photo_library" = "Photo Library";
+
+//messages
+"enter_user_name" = "Please enter full name";
+"enter_first_name" = "Please enter first name.";
+"enter_last_name" = "Please enter last name.";
+"select_birth_date" = "Please select D.O.B.";
+"select_gender" = "Please select gender.";
+"select_address" = "Please enter address.";
+"enter_mobile" = "Please enter mobile number.";
+"enter_appointment" = "Please enter appointment time and date";
+"enter_disease" = "Please enter disease name.";
+"enter_title" = "Please enter title";
+"enter_description" = "Please enter description";
+"enter_valid_mobile" = "Please enter valid mobile number.";
+"enter_home_town" = "Please enter home town.";
+"enter_proffession" = "Please enter your proffession.";
+"enter_member_course" = "Please enter member course.";
+"enter_golf_handicap" = "please enter golf handicap.";
+"enter_email" = "Please enter email address.";
+"enter_valid_email" = "Please enter valid email address.";
+"enter_password" = "Please enter password.";
+"enter_valid_password" = "Please enter valid password. Password should contain at least 8 characters, with at least 1 letter and 1 special character.";
+"enter_new_password" = "Please enter new password.";
+"enter_valid_new_password" = "Please enter valid new password. Password should contain at least 8 characters, with at least 1 letter and 1 special character.";
+"verification_mail_sent" = "Your account has been made, please verify it by clicking the activation link that has been sent to your email.";
+"enter_confirm_password" = "Please enter confirm password.";
+"enter_valid_confirm_password" = "Please enter valid confirm password. Password should contain at least 8 characters, with at least 1 letter and 1 special character.";
+"old_new_password_not_same" = "The old and new password must not be the same.";
+"new_retype_password_not_match" = "New passwords and confirm password not match.";
+"enter_name" = "Please enter name.";
+"select_add_request_photo" = "Please select photo which you would like to add into the tracking detection.";
+"enter_studio_name" = "Please enter studio name.";
+"enter_address" = "Please enter address.";
+"enter_studio_credits" = "Please enter studio credits.";
+"enter_genres_you_specialize_in" = "Select genres you specialized in.";
+"selecte_yes_or_no" = "Please Select Mixing and mastering.";
+"enter_studio_equipment_info" = "Please enter studio and equipment info.";
+"select_value_for_pricing_breakdown" = "Please select studio pricing breakdown.";
+"enter_account_holder_name" = "Please enter account holder name.";
+"enter_account_number" = "Please enter account number.";
+"routing_number" = "Please enter routing number.";
+"enter_SSN" = "Please enter SSN.";
+"upload_front_image" = "Please upload front image.";
+"upload_back_image" = "Please upload back image.";
+"select_date" = "Please select date";
+"start_time" = "Please select start time";
+"end_time" = "Please select end time";
+"special_instruction" = "Please enter special instructions";
+"select_card_type" = "Please select card type.";
+"enter_card_number" = "Please enter card number.";
+"enter_valid_card_number" = "Enter valid card number,";
+"name_on_card" = "Please enter name on card.";
+"enter_CVV" = "Please enter CVV.";
+"enter_valid_CVV" = "Enter valid CVV.";
+"enter_expiration_date" = "Please enter expiration date.";
+"enter_valid_expiration_date" = "Enter valid expiration date.";
+"select_day" = "Please select day.";
+"no_near_by_golf_clubs_available" = "No near by golf club available.";
+"no_data_found" = "No data found.";
+"agree_with_terms_and_conditions" = "Please agree with terms and conditions.";
+"no_session_selected" = "Please select any section for see session request.";
+"select_an_card" = "Please select an card for payment.";
+"add_title" = "Please add title.";
+"add_description" = "Please add description.";
+"rating_should_not_be_empty." = "Rating should not be empty.";
+"no_message_available" = "No message available";
+"invalid_credentials" = "You have entered incorrect password.";
+
+
+//success
+"verification_mail_sent" = "Your account has been made, please verify it by clicking the activation link that has been sent to your email.";
+"mail_not_verified_yet" = "Your email address is not verified yet, Please verify it to continue to the application. Do you wants to resent verification link again?";
+"new_password_sent" = "New password sent successfully";
+"profile_updated" = "You have updated your information successfully.";
+"password_changed" = "You have successfully changed your password.";
+"add_request_sent" = "You have sent request successfully, You will get notify once after admin take an action on it.";
+"time_slot_added" = "Studio time slot added successfully.";
+"please_enter_valid_card_details" = "Please enter valid card details.";
+"added_card_details" = "You have added card information successfully.";
+"feedback_submit" = "Your feedback added successfully.";
+"blok_day" = "You have block studio session successfully.";
+
+//request status
+"requests" = "Requests";
+"pending" = "Pending";
+"approved" = "Approved";
+"declined" = "Declined";
+
+
+"no_pending_data_found" = "No pending data";
+"no_awating_data_found" = "No awating data";
+"no_confirmed_data_found" = "No confirmed data";
+"no_data_available_for_this_date" = "Click on + button to unblock day or add Studio Availability.";
+"seleceted_dates_are_already_blocked" = "Seleceted dates are already blocked";
+"no_data_found" = "No data found";
+
+//pages
+"pull_more" = "Pull more";
+"release_to_refresh" = "Release to refresh";
+"updating" = "Updating...";
+
+//requests list, add requests
+"add_request" = "Add Request";
+"no_requested_entry_found" = "You didn't made any request to add animal track into the app. Please click on top right \'+\' to add track request.";
+"edit_profile" = "Edit Profile";
+
+"add_remove_fav_Unfav_studio" = "Add Studio to favourite list";
+
+//saved tracks
+"saved_tracks" = "Saved Tracks";
+"no_saved_tracks_entry_found" = "No track records found.";
+
+//notifications
+"notifications" = "Notifications";
+"no_notifications_entry_found" = "No New Notification.";
+
+//notifications for studio
+"notifications" = "Notifications";
+"no_notifications_entry_found" = "No New Notification.";
+
+//confirmation messages
+"confirm_logout" = "Are you sure, You want to logout?";
+
+//profile
+"account_information" = "Account Information";
+"change_password" = "Change Password";
+"about" = "About";
+"history" = "History";
+"privacy" = "Privacy";
+"favourite_studios" = "Favorite Studios";
+"my_bookings" = "My bookings";
+"signup_as_studio" = "Signup as studio";
+"switch_to_studio" = "Switch to Studio";
+"switch_to_artist" = "Switch to Artist Profile";
+"terms_and_condition" = "Terms & Conditions";
+"cancellation_policy" = "Cancellation Policy";
+"privacy_policy" = "Privacy Policy";
+"sign_out" = "Logout";
+"payment_method" = "Add payment method";
+"allow_location" = "Allow Location";
+"allow_notification" = "Allow notification";
+"switch_to_business" = "Switch to host";
+"switch_to_player" = "Switch to player";
+"sign_up_to_business" = "Signup as host";
+"terms_of_service" = "Terms of Service";
+
+//Profile Studio
+"add_slot_time" = "Add Slot Time";
+"account_information" = "Account Information";
+//"payment_method" = "Payment Methods";
+"change_password" = "Change Password";
+"allow_location" = "Allow Location";
+"allow_notification" = "Allow Notification";
+"switch_to_artist" = "Switch to Artist Profile";
+
+//Profile Studio For Support
+
+"submit_feedback" = "Submit Feedback";
+"terms_and_condition" = "Terms & Conditions";
+"cancellation_policy" = "Cancellation Policy";
+"sign_out" = "Logout";
+
+//account Details
+
+"enter_account_holder_name" = "Enter account holder name.";
+"enter_account_number" = "Enter account number.";
+"routing_number" = "Enter routing number.";
+"enter_SSN_number" = "Enter SSN number.";
+"upload_front_inmage" = "Upload front inmage.";
+"upload_back_image" = "Upload back image.";
+"enter_valid_account_number" = "Enter valid account number.";
+"enter_valid_routing_number" = "Enter valid routing number.";
+"enter_valid_SSN_number" = "Enter valid SSN number.";
+
+//account Details
+
+"enter_account_holder_name" = "Enter account holder name.";
+"enter_account_number" = "Enter account number.";
+"routing_number" = "Enter routing number.";
+"enter_SSN_number" = "Enter SSN number.";
+"upload_front_inmage" = "Upload front inmage.";
+"upload_back_image" = "Upload back image.";
+"enter_valid_account_number" = "Enter valid account number.";
+"enter_valid_routing_number" = "Enter valid routing number.";
+"enter_valid_SSN_number" = "Enter valid SSN number.";
+
+"enter_first_name_studio" = "Enter studio first name.";
+"enter_last_name_studio" = "Enter studio last name.";
+
+//Calendar
+
+"Sessions" = "Sessions";
+
+//cancellation request
+
+"give_reason_for_cancellation" = "Give reason for cancellation.";
+"your_cancellation_request_submit" = "Your request has been submit successfully.";
+
+//rejection request
+
+"give_reason_for_rejection" = "Give reason for rejection.";
+"your_rejection_request_submit" = "Your rejection request submit.";
+
+//accept request
+
+"your_request_submitted" = "Your request submitted.";
+
+"location_permission_title" = "Allow Location";
+"location_permission_description" = "We will need your location to give you a better experience";
+"notification_permission_title" = "Don't Miss Out";
+"notification_permission_description" = "Receive notification";
+"permission_allow" = "Allow";
+"permission_not_now" = "Not Now";
+
+"sureshow" = "Sureshow";
+"pending" = "Pending";
+"awaiting" = "Awaiting";
+"confirmed" = "CONFIRMED";
+"cancel" = "CANCEL";
+"more_info" = "More Info";
+"pay_now" = "Pay Now";
+
+"messages" = "Messages";
+
+"enter_add_guest_limit" = "Add guest limit is 4 only";
+"enter_remove_guest_limit" = "Minimum 1 guest are necessary";
+
+// add payment
+"credit_debit_card" = "Credit or Debit card";
+"pay_pal_card" = "PayPal";
+"apple_card" = "Apple Pay";
+
+// add payment method
+"select_card_type" = "Please select card type";
+"enter_card_number" = "Please enter card number";
+"enter_valid_card_number" = "Please enter valid card number";
+"name_on_card" = "Please enter name on card";
+"enter_CVV" = "Please enter Cvv";
+"enter_valid_CVV" = "Please enter valid cvv";
+"enter_expiration_date" = "Please enter expiration date";
+"enter_valid_expiration_date" = "Please enter valid expiration date";
+"select_an_card" = "Please select an card";
+
+// Fringe GolfCourse Host
+"enter_golf_course_name" = "Please enter name";
+"enter_address" = "Please enter address";
+"enter_golf_course_price" = "Please enter price";
+"enter_golf_course_description" = "Please enter descriptin";
